@@ -1,0 +1,314 @@
+﻿@model List<ShoppingCore.Models.Tbl_Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+    int count = 0;
+}
+<!-- BEGIN .main-content-wrapper -->
+<div class="main-content-wrapper">
+
+
+    <!-- BEGIN .homepage-slider -->
+    <div class="homepage-slider">
+        <div id="hompage-slider_content">
+            <div class="blank-item">
+                <img asp-append-version="true" src="../cdn.shopify.com/s/files/1/0176/2758/t/4/assets/blank950x330cfcd.png?0" alt="" />
+            </div>
+
+            <div class="item">
+
+                <div class="title">
+                    <h4 class="custom-font-1">Vivamus non erat et est</h4>
+                    <h5 class="custom-font-1">starting from</h5>
+                    <h6 class="custom-font-1">$999</h6>
+                    <a asp-controller="Home" asp-action="Catalog" asp-route-id="3" class="read-more">Read more</a>
+                </div>
+
+                <a asp-controller="Home" asp-action="Catalog" asp-route-id="3"><img asp-append-version="true" src="../cdn.shopify.com/s/files/1/0176/2758/t/4/assets/slider-item-1cfcd.jpg?0" alt="Vivamus non erat et est" /></a>
+            </div>
+
+
+            <div class="item">
+
+                <div class="title">
+                    <h3 class="custom-font-1">Nunc et augue a sapien</h3>
+                    <p>Vivamus non erat et est sodales pretium eu quis orci. Nunc et augue a sapien pharetra molestie. <a asp-controller="Home" asp-action="Catalog" asp-route-id="4">Read more</a></p>
+                </div>
+
+                <a asp-controller="Home" asp-action="Catalog" asp-route-id="4"><img asp-append-version="true" src="../cdn.shopify.com/s/files/1/0176/2758/t/4/assets/slider-item-2cfcd.jpg?0" alt="Nunc et augue a sapien" /></a>
+            </div>
+
+
+            <div class="item">
+
+                <div class="title">
+                    <h3 class="custom-font-1">Metus purus fringilla diam</h3>
+                    <p>Aenean ornare posuere tellus vitae tincidunt. Donec porta facilisis porta. Nulla tristique, magna non commodo suscipit, metus purus fringilla diam, id egestas dui lorem quis urna. <a asp-controller="Home" asp-action="Catalog" asp-route-id="2">Read more</a></p>
+                </div>
+
+                <a asp-controller="Home" asp-action="Catalog" asp-route-id="2"><img asp-append-version="true" src="../cdn.shopify.com/s/files/1/0176/2758/t/4/assets/slider-item-3cfcd.jpg?0" alt="Metus purus fringilla diam" /></a>
+            </div>
+
+
+            <div class="item">
+
+                <div class="title">
+                    <h4 class="custom-font-1">Aenean ornare posuere tellus</h4>
+                    <h5 class="custom-font-1">only</h5>
+                    <h6 class="custom-font-1">$1299</h6>
+                    <a asp-controller="Home" asp-action="Catalog" asp-route-id="2" class="read-more">Read more</a>
+                </div>
+
+                <a asp-controller="Home" asp-action="Catalog" asp-route-id="2"><img asp-append-version="true" src="../cdn.shopify.com/s/files/1/0176/2758/t/4/assets/slider-item-4cfcd.jpg?0" alt="Aenean ornare posuere tellus" /></a>
+            </div>
+        </div>
+        <div class="navigation custom-font-1">
+            <table>
+                <tr>
+                    <td>
+                        <a href="#" class="previous">Previous</a>
+                        <span id="pager">
+                            <a href="#" class="bullet"></a>
+                            <a href="#" class="bullet"></a>
+                            <a href="#" class="bullet"></a>
+                            <a href="#" class="bullet"></a>
+                        </span>
+                        <a href="#" class="next">Next</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- END .homepage-slider -->
+    </div>
+
+    <!-- BEGIN .message-welcome -->
+    <div style="text-align: center;">
+        <h3 class="custom-font-1">Welcome</h3>
+        
+        <p><strong>You are at right place for every kind of Furniture.</strong></p>
+        <p><b>Online Furniture</b> offers stellar choices when it comes to stand alone furniture pieces like queen-size beds, wardrobes or ottomans.</p>
+        <p>Check out the foyer furniture options here. Some of the items can indeed add character to your home.</p>
+        <p>You can get pieces in varying styles and finish to suit your requirements.</p>
+        
+        <!-- END .message-welcome -->
+    </div>
+
+
+    <!-- BEGIN .featured-items -->
+    <div class="featured-items">
+        <div class="main-title">
+            <p class="custom-font-1">Best Sellers</p>
+        </div>
+        <div class="lightbox" id="lightbox"></div>
+        <div class="items-wrapper">
+            <div class="items">
+
+                @foreach (var item in Model)
+                {
+                    if (count < 12)
+                    {
+                        <div class="item-block-1 __collection-item">
+                            <div class="image-wrapper-3">
+                                <div class="image">
+                                    <div class="image-overlay-1 trans-1">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <a href="javascript:void(0)" onclick="getProducts ('@item.ProductId')" class="quick-shop-launcher button-1 custom-font-1 trans-1"><span>Quick shop</span></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <a asp-action="Home" asp-route-id="@item.ProductId" title="@item.ProductName">
+                                        <img class="product-image-resizable" src="@Url.Content("/ProductImage/" + item.ProductImage)" alt="Product Image" />
+                                    </a>
+                                </div>
+                            </div>
+                            <h3><a href="#" class="custom-font-1">@item.ProductName</a></h3>
+                            <p>
+                                <i class="custom-font-1"></i>
+                                <b class="custom-font-1"> <span class='money'>@item.Price</span></b>
+                            </p>
+                            <!-- Quick shop partial view -->
+                            <div class="quick-shop-trigger" id="quickshop">
+
+                            </div>
+                        </div>
+                    }
+
+                    count++;
+                }
+
+            </div>
+
+        </div>
+        <div class="main-title">
+            <a style="font-size: large;margin-left:48%;float:none;color: #eeeeee;" href="Home/Catalog" class="view">View all items</a>
+        </div>
+        <div class="clear"></div>
+        <!-- END .featured-items -->
+    </div>
+
+
+    <!-- BEGIN .homepage-about -->
+    <div class="homepage-about">
+        <div class="main-title">
+            <p class="custom-font-1">About Us</p>
+        </div>
+        <p class="caps">
+            Online Furniture offers stellar choices when it comes to stand alone furniture pieces like queen-size beds, wardrobes or ottomans.
+
+            Check out the foyer furniture options here. Some of the items can indeed add character to your home.
+
+            You can get pieces in varying styles and finish to suit your requirements.
+        </p>
+
+        <!-- END .homepage-about -->
+    </div>
+    <!-- BEGIN .homepage-latest-news -->
+    <div class="homepage-latest-news">
+        <div class="main-title">
+            <p class="custom-font-1">News</p>
+            <a href="#" class="view">view all blog posts</a>
+        </div>
+        <div class="items">
+
+
+            <div class="item">
+                <div class="text">
+                    <h3><a href="#" class="custom-font-1">Fusce lobortis sem ac est porta ac ipsum vulputate</a></h3>
+                    <div class="title-legend">
+                        <a href="#" class="date">Sep 18, 2012</a>
+                        <a href="#" class="comments">2</a>
+                    </div>
+                    <p>
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum risus blandit enim malesuada vitae aliquet libero volutpat. Integer viverra quam tempus dolor condimentum ut euismod leo feugiat. Maecenas dignissim...
+
+                        <a href="#" class="more-link">Read more</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <div class="text">
+                    <h3><a href="#" class="custom-font-1">Lorem ipsum dolorsitas durum amet</a></h3>
+                    <div class="title-legend">
+                        <a href="#" class="date">Sep 17, 2012</a>
+                        <a href="#" class="comments">1</a>
+                    </div>
+                    <p>
+
+                        &nbsp; Quisque pharetra libero at orci lacinia elementum ultricies nisi imperdiet. Vestibulum nisl purus, gravida non tincidunt nec, bibendum quis ante. Donec porta eros nec elit semper quis blandit ipsum...
+
+                        <a href="#" class="more-link">Read more</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <div class="text">
+                    <h3><a href="#" class="custom-font-1">Aliquam feugiat imperdiet orcinon mattis</a></h3>
+                    <div class="title-legend">
+                        <a href="#" class="date">Aug 16, 2012</a>
+                        <a href="#" class="comments">1</a>
+                    </div>
+                    <p>
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum risus blandit enim malesuada vitae aliquet libero volutpat. Integer viverra quam tempus dolor condimentum ut euismod leo feugiat. Maecenas dignissim...
+
+                        <a href="#" class="more-link">Read more</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- END .homepage-latest-news -->
+    </div>
+    <!-- BEGIN .homepage-best-sellers -->
+    <div class="homepage-best-sellers">
+
+
+        <div class="main-title">
+            <p class="custom-font-1">Best Sellers</p>
+        </div>
+        <div class="items">
+
+            <div class="item best-seller-item">
+
+                <div class="image-wrapper-1">
+                    <div class="image">
+                        <div class="image-overlay-1 trans-1">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="button-2 trans-1"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <a href="#"><img asp-append-version="true" class="product-image-resizable-94x94" src="../cdn.shopify.com/s/files/1/0176/2758/products/photodune_2620841_modern_bedroom_s_compact4dfb.jpg?v=1345109152" alt="Striped oak wood bed" /></a>
+                    </div>
+                </div>
+                <div class="text">
+                    <p class="nr custom-font-1">1.</p>
+                    <p><b class="custom-font-1"><span class='money'>$450.00</span></b></p>
+                    <p class="more-link-wrapper"><a href="#" class="more-link">Details</a></p>
+                </div>
+            </div>
+            <div class="item best-seller-item">
+                <div class="image-wrapper-1">
+                    <div class="image">
+                        <div class="image-overlay-1 trans-1">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="button-2 trans-1"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <a href="#"><img asp-append-version="true" class="product-image-resizable-94x94" src="../cdn.shopify.com/s/files/1/0176/2758/products/photodune_942333_modern_living_room_s_compact063e.jpg?v=1345108675" alt="Weaved chairs with coffe table" /></a>
+                    </div>
+                </div>
+                <div class="text">
+                    <p class="nr custom-font-1">2.</p>
+                    <p><b class="custom-font-1"><span class='money'>$150.00</span></b></p>
+                    <p class="more-link-wrapper"><a href="#" class="more-link">Details</a></p>
+                </div>
+            </div>
+
+            <div class="item best-seller-item">
+
+                <div class="image-wrapper-1">
+                    <div class="image">
+                        <div class="image-overlay-1 trans-1">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="#" class="button-2 trans-1"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <a href="#"><img asp-append-version="true" class="product-image-resizable-94x94" src="../cdn.shopify.com/s/files/1/0176/2758/products/photodune_201018_patio_of_a_villa_m_compact447a.jpg?v=1345106389" alt="Weaved patio couch set" /></a>
+                    </div>
+                </div>
+                <div class="text">
+                    <p class="nr custom-font-1">3.</p>
+                    <p><b class="custom-font-1"><span class='money'>$250.00</span></b></p>
+                    <p class="more-link-wrapper"><a href="#" class="more-link">Details</a></p>
+                </div>
+            </div>
+
+        </div>
+        <!-- END .homepage-best-sellers -->
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+    <!-- END .main-content-wrapper -->
+</div>

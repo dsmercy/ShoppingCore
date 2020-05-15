@@ -1,0 +1,101 @@
+﻿@model ShoppingCore.Models.Shippingdetail
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content-wrapper">
+    <div class="main-title">
+        <p class="custom-font-1">Login</p>
+    </div>
+    <div class="single-full-width">
+        <div class="contact-form">
+            <form asp-action="PaymentSuccess" asp-controller="Shopping" style="margin: 0 45px 0 100px;text-align:center;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <p>
+                    <label>Total Amount</label>
+                    <label style="FONT-SIZE: large; MARGIN-LEFT: 8%;">@Model.AmountPaid</label>
+                </p>
+                <p>
+                    <label>Name</label>
+                    <input asp-for="RecieverName" class="input-text-1" placeholder="Reciever Name" value="Mercy" />
+                    <span asp-validation-for="RecieverName" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Mobile"></label>
+                    <input asp-for="Mobile" class="input-text-1" placeholder="Mobile" value="9988776655" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="City"></label>
+                    <input asp-for="City" class="input-text-1" placeholder="City" value="GKP" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Adress"></label>
+                    <input asp-for="Adress" class="input-text-1" placeholder="Adress" value="Adress 1" />
+                    <span asp-validation-for="Adress" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="State"></label>
+                    <input asp-for="State" class="input-text-1" placeholder="State" value="UP" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Country"></label>
+                    <input asp-for="Country" class="input-text-1" placeholder="Country" value="India" readonly="readonly"/>
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </p>
+                <p>
+                    <label>Zip Code</label>
+                    <input asp-for="ZipCode" class="input-text-1" placeholder="Zip code" value="225566" />
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+                </p>
+                <p>
+                    <label>Payment Type</label>
+                    <input asp-for="PaymentType" type="radio" value="COD" style="MARGIN-LEFT: 8%;" checked="checked" /><span margin-left: 2%;>COD</span>
+                    <input asp-for="PaymentType" type="radio" value="Net Banking" /><span margin-left: 2%;>Net Banking</span>
+                    <input asp-for="PaymentType" type="radio" value="Card" /><span margin-left: 2%;>Card</span>
+                    <span asp-validation-for="PaymentType" class="text-danger"></span>
+                </p>
+                <div>
+                    <input type="submit" value="Order" class="btn btn-primary"
+                           style="float: right;background-color: black;color: antiquewhite;padding: 5px 11px;border-radius: 8px;cursor:pointer" />
+                    <br /><br />
+                </div>
+            </form>
+
+        </div>
+        <div class="clear"></div>
+        <!-- END .single-full-width -->
+    </div>
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+
+</div>
+
+
+<style>
+    .contact-form .input-text-1 {
+        padding: 0px 10px;
+        opacity: 0.85;
+        width: 450px;
+        margin-left: 50px;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 95px;
+        overflow: hidden;
+        text-align: start;
+        padding: 0 0 1px 0;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 0;
+        overflow: hidden;
+        padding: 0 0 1px 0;
+    }
+</style>
+

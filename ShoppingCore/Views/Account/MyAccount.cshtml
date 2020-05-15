@@ -1,0 +1,81 @@
+﻿@model ShoppingCore.Models.Tbl_Members
+@{
+    ViewData["Title"] = "MyAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-content-wrapper">
+    <div class="main-title">
+        <p class="custom-font-1">My Account</p>
+    </div>
+    <div class="single-full-width">
+        <div class="contact-form">
+            <form asp-action="MyAccount" asp-controller="Account" style="margin: 0 45px 0 100px;text-align:center;">
+               
+                <p>
+                    <label>First Name</label>
+                    <input asp-for="FirstName" class="input-text-1" placeholder="First Name"  />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </p>
+                <p>
+                    <label> Last Name</label>
+                    <input asp-for="LastName" class="input-text-1" placeholder="Last Name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Gender"></label>
+                    <input asp-for="Gender" type="radio" value="Male" style="margin-left: 8%;" /><span style="margin-left: 2%;">Male</span>
+                    <input asp-for="Gender" type="radio" value="Female" style="margin-left: 8%;" /><span style="margin-left: 2%;">Female</span>
+                    
+                </p>
+                <p>
+                    <label>Email ID</label>
+                    <input asp-for="EmailId" class="input-text-1" placeholder="Email Id"  />
+                    <span asp-validation-for="EmailId" class="text-danger"></span>
+                </p>
+                <p>
+                    <label asp-for="Mobile"></label>
+                    <input asp-for="Mobile" class="input-text-1" placeholder="State" value="UP" />
+                </p>
+                
+                <div>
+                    <input type="submit" value="Update" class="btn btn-primary"
+                           style="float: right;background-color: black;color: antiquewhite;padding: 5px 11px;border-radius: 8px;cursor:pointer" />
+                    <br /><br />
+                </div>
+            </form>
+
+        </div>
+        <div class="clear"></div>
+        <!-- END .single-full-width -->
+    </div>
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+
+</div>
+
+
+<style>
+    .contact-form .input-text-1 {
+        padding: 0px 10px;
+        opacity: 0.85;
+        width: 450px;
+        margin-left: 50px;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 95px;
+        overflow: hidden;
+        text-align: start;
+        padding: 0 0 1px 0;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 0;
+        overflow: hidden;
+        padding: 0 0 1px 0;
+    }
+</style>
+

@@ -1,0 +1,354 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!-- BEGIN html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- BEGIN head -->
+<!-- Mirrored from callisto-dark.myshopify.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jan 2020 16:26:13 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Title -->
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="icon" sizes="16x16" href="~/quixlab/images/sleeper-chair.png">
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>
+    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/1762758/digital_wallets/dialog">
+    <meta name="shopify-checkout-api-token" content="3fdfd59ca4a2e781965fe9de8149b3aa">
+    <meta id="in-context-paypal-metadata" data-shop-id="1762758" data-venmo-supported="false" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="USD">
+    <style media="all">
+        .loading {
+            position: fixed;
+            top: 40%;
+            left: 40%;
+            display: block;
+            color: white;
+            margin: 0 auto;
+            z-index: 999;
+        }
+
+        .main-menu ul ul {
+            width: max-content;
+            padding: 5px 20px;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            float: left;
+            display: none;
+            z-index: 600;
+        }
+
+
+        .description .items ul li {
+            font-size: small;
+            font-family: cursive;
+        }
+
+        .main-header .logo img {
+            float: left;
+            margin: -90px 22px -72px 0;
+        }
+
+
+        .gpay-iframe {
+            height: 44px !important;
+            width: 100% !important;
+            cursor: pointer;
+            vertical-align: middle !important
+        }
+
+        .quick-shop-trigger {
+            z-index: 700;
+            display: none;
+        }
+
+        .ui-autocomplete {
+            max-height: 100px;
+            overflow-y: auto; /* prevent horizontal scrollbar */
+            overflow-x: hidden; /* add padding to account for vertical scrollbar */
+            z-index: 1000 !important;
+        }
+
+        .ui-menu .ui-menu-item a {
+            text-decoration: none;
+            display: block;
+            padding: 3px .4em;
+            line-height: 1.5;
+            min-height: 0;
+            font-weight: normal;
+            background-color: #1f1c1d;
+            color: #ffedb2;
+            margin: 1px 0;
+        }
+    </style>
+
+    <!-- Meta tags -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=100%, initial-scale=1, minimum-scale=1" />
+
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/faviconcfcd.html" asp-append-version="true" type="image/x-icon" />
+    <link rel="canonical" href="index.html" />
+
+    <!-- Stylesheets -->
+    <link href="~/css/sweetalert.css" asp-append-version="true" rel="stylesheet" type="text/css" media="all" />
+    <link href="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/main-stylesheetcfcd.css" asp-append-version="true" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/darkcfcd.css" asp-append-version="true" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="~/lib/jquery/jquery-ui.css" rel="stylesheet" />
+
+    <!-- JavaScripts -->
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/jquery.mincfcd.js" asp-append-version="true" type="text/javascript"></script>
+    <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/jquery.placeholder.mincfcd.js" asp-append-version="true" type="text/javascript"></script>
+    <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/jquery.uniformcfcd.js" asp-append-version="true" type="text/javascript"></script>
+
+    @* <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/jquery.easing.1.3cfcd.js" asp-append-version="true" type="text/javascript"></script>*@
+    <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/jquery.cycle.allcfcd.js" asp-append-version="true" type="text/javascript"></script>
+    <script src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/globalcfcd.js" asp-append-version="true" type="text/javascript"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/jquery-ui.min.js"></script>
+
+    @*<script src="/cdn.shopify.com/s/assets/themes_support/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../s7.addthis.com/js/250/addthis_widget.js"></script>
+        <script charset="utf-8" src="../widgets.twimg.com/j/2/widget.js"></script>*@
+    <script charset="utf-8" src="~/js/sweetalert-dev.js"></script>
+    <script charset="utf-8" src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/CustomFunction.js" asp-append-version="true"></script>
+    <script src="~/AngularController/angular.min.js"></script>
+    <script src="~/AngularController/lazyload.js"></script>
+    <!-- END head -->
+</head>
+
+<!-- BEGIN body -->
+<body class="top template-index">
+    <!-- BEGIN .main-body-wrapper -->
+    <div class="main-body-wrapper">
+
+        <!-- BEGIN .main-dock-wrapper -->
+        <div class="main-dock-wrapper">
+            <div class="main-dock">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="index" class="home"></a></li>
+
+                    <li><a asp-controller="Home" asp-action="FaqSupport">FAQ &amp; support</a></li>
+
+                    <li><a asp-controller="Home" asp-action="Contact">Contacts</a></li>
+
+                    <li><a asp-controller="Home" asp-action="Features">Features</a></li>
+
+                </ul>
+
+                <ul class="navbar dropdown">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="checkout"><a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li class="checkout"><a asp-controller="Account" asp-action="Login">Login</a></li>
+                    }
+                </ul>
+                <div id="_cartDiv"></div>
+                @* <ul>
+                    <li class="cart"><a asp-controller="Shopping" asp-action="Cart">Your cart: <b>@HttpContextAccessor.HttpContext.Session.GetInt32("Cartcount") items</b> @*(<span class='money'>$0.00</span> in total)</a></li>
+                    </ul>*@
+            </div>
+            <!-- END .main-dock-wrapper -->
+        </div>
+
+        <!-- BEGIN Login Modal -->
+        <div class="modal fade" id="myModal" role="dialog" data-url="@Url.Action("_Login","Account")"></div>
+        <!-- BEGIN end Login Modal -->
+        <!-- BEGIN .main-header -->
+        <div class="main-header">
+            <div class="logo">
+
+                <a asp-controller="Home" asp-action="index"><img style="margin: -90px 22px -72px 0;" src="~/Images/mainlogo.png" asp-append-version="true" alt="Callisto Dark - Responsive Shopify Theme" /></a>
+                @*<img src="~/Images/mainlogo.png" />*@
+                <span class="custom-font-1">All Furnitures at a Place</span>
+            </div>
+
+            <form id="header-search" asp-controller="Home" asp-action="Search" method="post">
+                <div class="search">
+                    <input type="text" id="searchname" name="productName" class="input-text-1 trans-1" placeholder="search by name" />
+                </div>
+            </form>
+
+            <div class="clear"></div>
+
+            <div class="main-menu custom-font-1">
+                <table style="min-width: 100%">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="index" class="single">Home</a></li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Catalog"><span>COllections</span></a>
+                                    <ul>
+                                        <li><a asp-controller="Home" asp-action="Catalog" asp-route-id="2">Living room furniture</a></li>
+                                        <li><a asp-controller="Home" asp-action="Catalog" asp-route-id="3">Dining room furniture</a></li>
+                                        <li><a asp-controller="Home" asp-action="Catalog" asp-route-id="4">Bedroom furniture</a></li>
+                                        <li><a asp-controller="Home" asp-action="Catalog" asp-route-id="5">Home Decor</a></li>
+                                        <li><a asp-controller="Home" asp-action="Catalog" asp-route-id="6">Restaurant furniture</a></li>
+                                    </ul>
+                                </li>
+                                <li><a asp-controller="Home" asp-action="Blog" class="single">Blog</a></li>
+                                <li><a asp-controller="Home" asp-action="About" class="single">About Us</a></li>
+                                <li><a asp-controller="Home" asp-action="Contact" class="single">Contacts</a></li>
+                                <li><a asp-controller="Home" asp-action="Features" class="single">Features</a></li>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                                {
+                                    <li>
+                                        <a asp-controller="Account" asp-action="Myaccount"><span>@User.Identity.Name</span></a>
+                                        <ul>
+                                            <li><a asp-controller="Shopping" asp-action="Orders">Orders</a></li>
+                                            <li><a asp-controller="Shopping" asp-action="Cart">Cart</a></li>
+                                            <li><a asp-controller="Account" asp-action="Myaccount">Account</a></li>
+                                            <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                else if (User.IsInRole("Admin"))
+                                {
+                                    <li><a asp-controller="Admin" asp-action="index" class="single">Dashboard</a></li>
+                                }
+
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="clear"></div>
+            <!-- END .main-header -->
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+
+        <!-- BEGIN .main-footer-wrapper -->
+        <div class="main-footer-wrapper">
+
+            <a href="#" class="back-to-the-top">Go back to the top</a>
+
+            <div class="main-footer">
+
+                <div class="menu">
+                    <div class="main-title">
+                        <p class="custom-font-1">Menu</p>
+                    </div>
+                    <ul>
+
+                        <li><a href="/Home/About" class="single">About Us</a></li>
+
+                        <li><a href="/Home/Catalog/0" class="single">Catalog</a></li>
+
+                        <li><a href="/Home/Blog" class="single">Blog</a></li>
+
+                        <li><a href="/Home/Features" class="single">Features</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="footer-twitter">
+                    <div class="main-title">
+                        <p class="custom-font-1">Latest Tweets</p>
+                    </div>
+                    <div class="items">
+                        <p>Callisto will look great and fully usable on tablets and smartphones such as iPad and iPhone. You can try to re-size your browser windows to see for yourself!</p>
+                    </div>
+                </div>
+
+
+                <div class="newsletter">
+
+                    <div class="main-title">
+                        <p class="custom-font-1">Newsletter</p>
+                    </div>
+
+                    <p>Vestibulum at lacus id turpis malesuada varius. Donec ultricies mauris vel nisi porta dictum.</p>
+
+                    <form method="post" action="#" id="contact_form" accept-charset="UTF-8" class="contact-form">
+                        <input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" />
+
+
+
+                        <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter" />
+                        <input type="text" id="contact_email" name="contact[email]" class="input-text-2 trans-1" placeholder="your email address" />
+                        <input type="submit" value="Subscribe" class="submit custom-font-1" />
+
+                        <div class="clear"></div>
+
+                    </form>
+
+                </div>
+
+
+
+                <div class="about-us">
+                    <div class="main-title">
+                        <p class="custom-font-1">About us</p>
+                    </div>
+                    <p></p>
+                    <p class="social">
+
+                        <a href="http://youtube.com/"><img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-youtube-1cfcd.png" asp-append-version="true" alt="" /></a>
+
+
+                        <a href="http://facebook.com/"><img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-facebook-1cfcd.png" asp-append-version="true" alt="" /></a>
+
+
+                        <a href="http://twitter.com/"><img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-twitter-1cfcd.png" asp-append-version="true" alt="" /></a>
+
+
+                        <a href="http://flickr.com/"><img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-flickr-1cfcd.png" asp-append-version="true" alt="" /></a>
+
+
+
+                    </p>
+                    <p class="social payment-types">
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-americanexpress-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-discover-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-visa-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-mastercard-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-maestro-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-cirrus-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-paypal-1cfcd.png" asp-append-version="true" alt="" />
+                        <img src="/cdn.shopify.com/s/files/1/0176/2758/t/4/assets/ico-google-1cfcd.png" asp-append-version="true" alt="" />
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- END .main-footer-wrapper -->
+        </div>
+
+
+        <!-- END .main-body-wrapper -->
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getCart();
+            $("#searchname").autocomplete({
+                source: '/Home/search',
+            });
+        });
+
+    </script>
+    <!-- END body -->
+</body>
+
+<!-- END html -->
+<!-- Mirrored from callisto-dark.myshopify.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jan 2020 16:27:11 GMT -->
+</html>

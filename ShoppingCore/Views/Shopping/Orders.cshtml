@@ -1,0 +1,77 @@
+﻿@model List<ShoppingCore.Models.Shippingdetail>
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .cart-wrapper .cart-items .remove {
+        width: 80px;
+        float: left;
+        padding: 3px 0px 5px 8px;
+        margin: 38px 0px 0 -8px;
+        background-color: darkred;
+        border-radius: 10px;
+    }
+
+    .item-image p {
+        font-size: large;
+    }
+</style>
+<!-- BEGIN .main-content-wrapper -->
+<div class="main-content-wrapper">
+
+    <!-- BEGIN .cart-wrapper -->
+    <div class="cart-wrapper">
+        <div class="main-title">
+            <p class="custom-font-1">All Orders</p>
+            <a href="Home/Catalog" class="continue">continue shopping</a>
+        </div>
+
+        <div class="cart-titles">
+            <p class="item-image" style="font-size:larger">Product name</p>
+            <p class="quantity" style="font-size:larger">Reciever Name</p>
+            <p class="price" style="font-size:larger;width: 15%;" >Amount Paid</p>
+            <p class="price" style="font-size:larger">Ordered Date</p>
+        </div>
+        <form action="/cart" method="post" id="cartform" class="clearfix">
+
+            <div class="cart-items">
+
+                @foreach (var item in Model)
+                {
+                <div class="row">
+                    <div class="item-image">
+                        <div class="image-wrapper-1">
+                            <div class="image">
+                                <a href="/Home/ProductDetails/@item.ProductId"><img class="product-image-resizable-94x94" src="@Url.Content("/ProductImage/"+item.Image)" alt="Item Image" style="position: absolute; left: -3px; top: 13px; display: block;"></a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="desc">
+                        <h3 class="custom-font-1"><a href="/Home/ProductDetails/@item.ProductId">@item.ProductName</a></h3>
+
+                    </div>
+                    <div class="price custom-font-1" style="width: 19%;">
+                        <span class="money">@item.RecieverName</span>
+                    </div>
+                    <div class="price custom-font-1">
+                        <span class="money">@item.AmountPaid</span>
+                    </div>
+                    <div class="price custom-font-1">
+                        <span class="money">@item.OrderDate</span>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                }
+
+            </div>
+        </form>
+    </div>
+
+    <div class="clear"></div>
+    <!-- END .cart-wrapper -->
+</div>
+
+

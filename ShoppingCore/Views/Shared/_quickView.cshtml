@@ -1,0 +1,66 @@
+﻿@model ShoppingCore.Models.Tbl_Product
+
+
+<div class="main-content-wrapper" style="padding-bottom: 420px;">
+
+    <!-- BEGIN .catalog -->
+    <div class="catalog">
+        <!-- BEGIN .quick-shop -->
+        <div class="items-wrapper">
+            <div class="items" id="products">
+
+                <div class="lightbox"></div>
+                <div class="quick-shop" style="position: fixed; left: 17%; top:13%; display: block;">
+                    <div class="content">
+                        <div class="image-resize-container">
+                            <div class="image-wrapper-1">
+                                <div class="image">
+                                    <div class="image-overlay-1 trans-1">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <a href="/Home/ProductDetails/@Model.ProductId" class="button-1 custom-font-1 trans-1"><span>View this item in full view</span></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <a href="products/striped-oak-wood-bed.html"><img src="@Url.Content("/ProductImage/" + Model.ProductImage)" style="height: 344px;position: absolute;left: -143px;top: 0px;" class="product-image-resizable-344x344" alt="Image" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <div id="product-100174820">
+                                <h2 class="custom-font-1"><a href="products/striped-oak-wood-bed.html">@Model.ProductName</a></h2>
+                                <div class="price custom-font-1">
+                                    <p class="current-price"></p>
+                                    <p><s class="old-price"></s></p>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="javascript:void(0)" onclick="AddtoCart ('@Model.ProductId')" class="button-3 custom-font-1 trans-1 product-purchase-btn"><span>Add to cart</span></a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Shopping" asp-action="AddProductToCart1" asp-route-itemId="@Model.ProductId" class="button-3 custom-font-1 trans-1 product-purchase-btn"><span>Add to cart</span></a>
+                                    }
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="description">
+                                    <div class="items">
+                                        <div class="item">
+                                            @Html.Raw("<span color='white' style='position: absolute;'>" + @Model.Description + "</span>")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <a href="#" class="close"></a>
+                    </div>
+                    <!-- END .quick-shop -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

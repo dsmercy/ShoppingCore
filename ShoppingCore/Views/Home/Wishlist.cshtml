@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Wishlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="samples">
+                <img id="zoom1" width="100px" height="250px" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="~/ProductImage/1bcb9598-390e-448e-9c3b-c2bcc359e389_carrot.jpg">
+                <img id="zoom2" width="100px" height="250px" onmousemove="zoomIn(event)" onmouseout="zoomOut()" src="~/ProductImage/1f450ba6-69ba-4c8b-bd81-204650a59b5c_tomato.jpg">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div id="preview" onmousemove="zoomIn(event)"></div>
+            </div>
+        </div>
+    </div>
+
+<style>
+    #preview{
+	margin-top: 10px;
+	border:1px solid black;
+	width:350px;
+	height:500px;
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+}
+#samples{
+	text-align: center;
+}
+#samples img {	
+	margin: 10px;
+	display: block;
+	 border: 2px solid #6A6462;
+}
+#samples img:hover {
+	 cursor: zoom-in;
+	 border: 0;
+	 -moz-box-shadow:2px 2px 7px 2px rgba(130,130,130,1),-1px -1px 7px 2px rgba(130,130,130,1);
+	-webkit-box-shadow: 2px 2px 7px 2px rgba(130,130,130,.7),-1px -1px 7px 2px rgba(130,130,130,1);
+	box-shadow: 2px 2px 7px 2px rgba(130,130,130,.7),-2px -2px 7px 2px rgba(130,130,130,1);
+}
+@@media screen and (max-width: 767px){
+	#samples img {
+		display: inline-block;
+	}
+}
+</style>
+
+<script>
+    function zoomIn(event) {
+  var pre = document.getElementById("preview");
+  pre.style.visibility = "visible";
+  if ($('#zoom1').is(':hover')) {
+        var img = document.getElementById("zoom1");
+		pre.style.backgroundImage = "url('~/ProductImage/1f450ba6-69ba-4c8b-bd81-204650a59b5c_tomato.jpg')";
+    }
+  if ($('#zoom2').is(':hover')){
+		var img = document.getElementById("zoom2");
+		pre.style.backgroundImage = "url('~/ProductImage/1f450ba6-69ba-4c8b-bd81-204650a59b5c_tomato.jpg')";
+  } 
+  var posX = event.offsetX;
+  var posY = event.offsetY;
+  pre.style.backgroundPosition=(-posX*2.5)+"px "+(-posY*5.5)+"px";
+
+}
+
+function zoomOut() {
+  var pre = document.getElementById("preview");
+  pre.style.visibility = "hidden";
+}
+</script>

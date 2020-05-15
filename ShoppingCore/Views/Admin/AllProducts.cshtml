@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ShoppingCore.Models.ProductDetail>
+@{
+    ViewData["Title"] = "AllProducts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Table</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                <thead>
+                                    <tr>
+                                        <th>Product </th>
+                                        <th>Category </th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Sale Price</th>
+                                        <th>Manage Products</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>@item.ProductName</td>
+                                        <td>@item.CategoryName</td>
+                                        @foreach (var img in item.Images)
+                                        {
+                                    <td>
+                                        <a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@item.ProductId"  title="@item.ProductName">
+                                            <img class="" src="@Url.Content("/Thumbnails/"+img.ImageName)" alt="Product Image" />
+                                        </a>
+                                    </td>
+                                            break;
+                                        }
+
+                                        <td>@item.Price</td>
+                                        <td>@item.PriceSale</td>
+                                        <td><a asp-controller="Admin" asp-action="CreateProduct" asp-route-id="@item.ProductId" 
+                                               style="background-color: #76838f;padding: 4px 10px;border-radius: 6px;color: aliceblue;">Update</a>
+                                            <a asp-controller="Admin" asp-action="CreateProduct" asp-route-id="@item.ProductId" 
+                                               style="background-color: #76838f;padding: 4px 10px;border-radius: 6px;color: aliceblue;">Delete</a>
+                                        </td>
+                                    </tr>
+                                    }
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+<!--**********************************
+    Content body end
+***********************************-->

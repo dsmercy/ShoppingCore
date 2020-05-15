@@ -1,0 +1,64 @@
+﻿@model ShoppingCore.Models.LoginViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content-wrapper">
+    <div class="main-title">
+        <p class="custom-font-1">Login</p>
+    </div>
+    <div class="single-full-width">
+        <div class="contact-form">
+            <form asp-action="Login" asp-controller="Account" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" style="margin: 0 45px 0 100px;text-align:center;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <p>
+                    <label>E-mail:</label>
+                    <input asp-for="UserEmailId" class="input-text-1" placeholder="E-mail" /><br />
+                    <span asp-validation-for="UserEmailId" class="text-danger"></span>
+                </p>
+
+                <p>
+                    <label>Password:</label>
+                    <input asp-for="Password" class="input-text-1" placeholder="Password" /><br />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </p>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" style="float: right;background-color: black;color: antiquewhite;padding: 5px 11px;border-radius: 8px;cursor:pointer" /><br /><br />
+                    <a asp-controller="Account" asp-action="Register" style="font-size: large;text-decoration: underline;float:left">New User</a>
+                </div>
+            </form>
+
+        </div>
+        <div class="clear"></div>
+        <!-- END .single-full-width -->
+    </div>
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+
+</div>
+<style>
+    .contact-form .input-text-1 {
+        padding: 0px 10px;
+        opacity: 0.85;
+        width: 450px;
+        margin-left: 50px;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 95px;
+        overflow: hidden;
+        text-align: start;
+        padding: 0 0 1px 0;
+    }
+
+    .contact-form form p {
+        margin: 0 0 16px 0;
+        overflow: hidden;
+        padding: 0 0 1px 0;
+    }
+</style>
+
