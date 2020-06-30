@@ -21,4 +21,5 @@ using ShoppingCore.Models;
     public virtual DbSet<Tbl_Roles> Tbl_Roles { get; set; }
     public virtual DbSet<Tbl_ShippingDetails> Tbl_ShippingDetails { get; set; }
     public virtual DbSet<Tbl_ProductImage> Tbl_ProductImages { get; set; }
+    public virtual DbSet<Tbl_PinCodes> Tbl_PinCodes { get; set; }
 }

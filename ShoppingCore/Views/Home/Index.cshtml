@@ -120,7 +120,7 @@
                                         </table>
                                     </div>
                                     <a asp-action="Home" asp-route-id="@item.ProductId" title="@item.ProductName">
-                                        <img class="product-image-resizable" src="@Url.Content("/ProductImage/" + item.ProductImage)" alt="Product Image" />
+                                        <img class="" src="@Url.Content("/Thumbnails/" + item.ProductImage)" style="position:absolute;display:block;width:100%;height:100%" alt="Product Image" />
                                     </a>
                                 </div>
                             </div>

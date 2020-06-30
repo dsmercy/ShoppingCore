@@ -131,7 +131,7 @@ div.selector:hover { opacity: 1; }
 		.item-block-1 .image-wrapper:hover .image-overlay-1 { opacity: 1; }
 
 	.item-block-1 .image-wrapper-3 { background-color: #fff; border: rgba(0, 0, 0, 0.15) 1px solid; padding: 2px; margin: 0 0 10px 0; }
-		.item-block-1 .image-wrapper-3 .image { width: 233px; height: 214px;  overflow: hidden; position: relative; z-index: 99; }
+		.item-block-1 .image-wrapper-3 .image { width: 100%; height: 150px;  overflow: hidden; position: relative; z-index: 99; }
 			.item-block-1 .image-wrapper-3 .image img { position: absolute; z-index: 1; }
 		.item-block-1 .image-wrapper-3 .image-overlay-1 { opacity: 0; z-index: 2; }
 		.item-block-1 .image-wrapper-3:hover .image-overlay-1 { opacity: 1; }
@@ -445,11 +445,11 @@ div.selector:hover { opacity: 1; }
 			.main-item-wrapper .image-wrapper-4 .image { width: 60px; height: 60px;  overflow: hidden; position: relative; }
 				.main-item-wrapper .image-wrapper-4 .image img { position: absolute; z-index: 1; padding: 0; border: none; }
 
-		.main-item-wrapper .main-image { width: 476px; margin: 0 50px 0 0; float: left; }
+		.main-item-wrapper .main-image { width: 53%; margin: 0 50px 0 0; float: left; }
 			.main-item-wrapper .main-image table { margin: 0 auto; }
 			.main-item-wrapper .main-image .active { opacity: 1; }
 
-		.main-item-wrapper .text { float: left; width: 424px; }
+		.main-item-wrapper .text { float: left; width: 38%; }
 			.main-item-wrapper .text h2 { font-size: 32px; line-height: 36px; font-weight: normal; margin: -5px 0 12px 0; }
 			.main-item-wrapper .text .price { background: url(border-5b2eb.png?306) bottom left repeat-x; padding: 0 0 25px 0; overflow: hidden; }
 				.main-item-wrapper .text .price div { width: 250px; float: left; overflow: hidden; }

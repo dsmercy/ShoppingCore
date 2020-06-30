@@ -201,17 +201,37 @@ namespace ShoppingCore.Controllers
 
         public ProductList Lazy_data(int pagesize, int pageindex,int catid)
         {
-            IEnumerable<Tbl_Product> products = null;
+         
+            IEnumerable<Tbl_Product> model = null;
 
             if (catid == 0)
             {
-                products = Context.Tbl_Product.Skip(pageindex * pagesize).Take(pagesize);
+                model = Context.Tbl_Product.Skip(pageindex * pagesize).Take(pagesize);
+                //  SELECT colName1, colName2, colName3, colName4 FROM tblMyTableName  ORDER BY colNameForSorting  
+                // OFFSET ( @OffSetRowNo-1 ) * @FetchRowNo ROWS  FETCH NEXT @FetchRowNo ROWS ONLY  
             }
             else
             {
-                products = Context.Tbl_Product.Where(i=>i.CategoryId==catid).Skip(pageindex * pagesize).Take(pagesize);
-            }          
-            
+                model = Context.Tbl_Product.Where(i=>i.CategoryId==catid).Skip(pageindex * pagesize).Take(pagesize);
+            }
+
+            List<Tbl_Product> products = new List<Tbl_Product>();
+            foreach (var item in model)
+            {
+                Tbl_Product tbl_Product = new Tbl_Product();
+                tbl_Product.Category = item.Category;
+                tbl_Product.Description = item.Description;
+                tbl_Product.PriceSale = item.PriceSale;
+                tbl_Product.Price = item.Price;
+                tbl_Product.ProductName = item.ProductName;
+                tbl_Product.ProductId = item.ProductId;
+                Tbl_ProductImage img = new Tbl_ProductImage();
+                img = prodImage_repository.GetByParameter(i => i.ProductId == item.ProductId);
+                tbl_Product.ProductImage = img.ImageName;
+                products.Add(tbl_Product);
+            }
+
+
             ProductList productList = new ProductList();
             productList.prodData = products;;
             return productList;

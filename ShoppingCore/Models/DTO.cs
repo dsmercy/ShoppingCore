@@ -145,4 +145,12 @@ namespace ShoppingCore.Models
         public virtual Tbl_Product Product { get; set; }
     }
 
+    public partial class Tbl_PinCodes
+    {
+        [Key]
+        public int PinId { get; set; }
+        public int Pincode { get; set; }
+        public string City { get; set; }
+    }
+
 }

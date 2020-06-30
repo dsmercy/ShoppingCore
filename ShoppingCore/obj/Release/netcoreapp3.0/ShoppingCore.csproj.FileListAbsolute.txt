@@ -157,3 +157,6 @@ C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\obj\Release\netcoreapp3.0\
 C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\obj\Release\netcoreapp3.0\Razor\Views\Shopping\Cart.cshtml.g.cs
 C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\obj\Release\netcoreapp3.0\Razor\Views\Shopping\Checkout.cshtml.g.cs
 C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\obj\Release\netcoreapp3.0\Razor\Views\Shopping\Orders.cshtml.g.cs
+C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\bin\Release\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\bin\Release\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\dsmer\source\repos\ShoppingCore\ShoppingCore\bin\Release\netcoreapp3.0\Newtonsoft.Json.Bson.dll

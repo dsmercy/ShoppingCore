@@ -111,7 +111,7 @@ var soulage = {
 		//});
         $(window).resize(function () {
             //fade in
-            $('.lightbox').show();	//IE does not allow to fadein transparent stuff
+            //$('.lightbox').show();	//IE does not allow to fadein transparent stuff
             $('.quick-shop').fadeIn(350);
 			soulage.adjustQuickShopPopupPosition();
         });

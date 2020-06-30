@@ -541,13 +541,14 @@ function RemoveCart(x) {
     
     var Isdeleted = DeleteFunction('/Shopping/RemoveCart', x);
     if (Isdeleted) {
-        swal({
-            title: '',
-            text: "Removed",
-            type: 'success'
-        }, function () {
-            location.reload();
-        });
+        //swal({
+        //    title: '',
+        //    text: "Removed",
+        //    type: 'success'
+        //}, function () {
+        //    location.reload();
+        //});
+        location.reload();
     }
     else {
         swal("An error occured", "", "error");

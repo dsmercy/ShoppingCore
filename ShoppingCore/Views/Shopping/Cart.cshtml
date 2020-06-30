@@ -16,10 +16,10 @@
     }
 </style>
 <!-- BEGIN .main-content-wrapper -->
-<div class="main-content-wrapper" ng-app="cart" ng-controller="cartcontroller">
+<div class="main-content-wrapper">
 
     <!-- BEGIN .cart-wrapper -->
-    <div class="cart-wrapper">
+    <div class="cart-wrapper"  ng-app="cart" ng-controller="cartcontroller">
         <div class="main-title">
             <p class="custom-font-1">Shopping cart</p>
             <a href="Home/Catalog" class="continue">continue shopping</a>
@@ -76,11 +76,9 @@
                         <div class="checkout">
                             <p>
                                 <s>Total payment:</s>
-                                <b class="custom-font-1"><span class="money">{{totalPrice}}</span></b>
+                                <b class="custom-font-1"><span class="money">{{totalPrice}}.00</span></b>
                             </p>
-                            <p>
-                                <button style="cursor: pointer;" asp-controller="Shopping" asp-action="Checkout" type="submit" class="button-3 custom-font-1 trans-1"><span>Proceed to checkout</span></button>
-                            </p>
+                           
                         </div>
                     </div>
                 </div>
@@ -88,7 +86,8 @@
             </div>
         </form>
     </div>
-
+    <p style="float:right">
+        <a class="button-3 custom-font-1 trans-1" href="/Shopping/Checkout"><span>Proceed to checkout</span></a>    </p>
     <div class="clear"></div>
     <!-- END .cart-wrapper -->
 </div>

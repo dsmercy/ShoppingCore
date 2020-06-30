@@ -1,11 +1,12 @@
 ﻿var app = angular.module('myapp', []);
 
+
 app.controller("lazycontroller", function ($scope, $http) {
     $scope.currentpage = 0;
     $scope.totalpage = 0;
     $scope.allCategory = 0;
     $scope.detailslist = [];
-    $scope.path = "/ProductImage/";
+    $scope.path = "/Thumbnails/";
     $scope.Cats = [{ id: '0', name: 'All'}, { id: '2', name: 'Living room furniture'},
         { id: '3', name: 'Dining room furniture'}, { id: '4', name: 'Bedroom furniture'}, { id: '5', name: 'Home Decor'}, { id: '6', name: 'Restaurant furniture'}];  
 
@@ -58,3 +59,67 @@ app.controller("lazycontroller", function ($scope, $http) {
         getProducts(data);        
     }
 });
+
+
+var app = angular.module('cart', []);
+
+app.controller("cartcontroller", function ($scope, $http) {    
+    $scope.cartlist = [];
+    $scope.totalPrice = 0;
+    $scope.path = "/ProductImage/";
+
+    function getdata() {
+
+        $http.get("/shopping/CartData").then(function (response) {
+            $scope.cartlist = [];
+            $scope.totalPrice = 0;
+            angular.forEach(response.data, function (value) {
+                $scope.cartlist.push(value);
+                $scope.totalPrice = $scope.totalPrice + (value.priceSale * value.totalProduct);
+            });
+            console.log($scope.totalPrice);
+        }, function (error) {
+            alert('Failed');
+        })
+    }
+
+    
+    getdata();
+
+
+    $scope.AddtoCart = function (itemid) {
+        $http.post("/shopping/AddProductToCart?itemId=" + itemid).then(function (response) {            
+            getdata();
+            swal({
+                title: '',
+                text: "Added to Cart",
+                type: 'success'
+            }, function () {
+                getCart();
+            });
+        }, function (error) {
+            alert('Failed');
+        })
+    };
+
+    $scope.RemoveCart = function (itemid) {
+        $http.post("/shopping/RemoveCart?itemId=" + itemid).then(function (response) {            
+            getdata();
+            swal({
+                title: '',
+                text: "Removed",
+                type: 'success'
+            }, function () {
+                getCart();
+            });
+        }, function (error) {
+            alert('Failed');
+        })
+    };
+
+   
+});
+
+
+
+

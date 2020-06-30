@@ -198,13 +198,13 @@
 
                 <div class="main-image">
 
-                    <div class="image-wrapper-3" style="overflow: hidden;">
-                        <div id="single-product-slider">
+                    <div style="overflow: hidden;border: 5px solid darkslategray;">
+                        <div id="single-product-slider" style="position: relative;width: 100%;height: 472px;overflow: hidden;">
                             @foreach (var image in Model.Images)
                             {
                                 <div class="image">
                                     <a href="@Url.Content("/ProductImage/"+image.ImageName)" class="lightbox-launcher">
-                                        <img asp-append-version="true" src="@Url.Content("/ProductImage/"+image.ImageName)" class="product-image-resizable-large" />
+                                        <img asp-append-version="true" src="@Url.Content("/ProductImage/"+image.ImageName)" style="height: 470px; position: absolute; left: -196px; top: 0px; display: inline;" />
                                     </a>
                                 </div>
                             }
@@ -312,7 +312,7 @@
                                             </table>
                                         </div>
                                         <a href="#" title="@item.ProductName">
-                                            <img asp-append-version="true" class="product-image-resizable" src="@Url.Content("/ProductImage/"+item.ProductImage)" alt="Product Image" />
+                                            <img asp-append-version="true" style="position:absolute;display:block;width:100%;height:100%" src="@Url.Content("/ProductImage/"+item.ProductImage)" alt="Product Image" />
                                         </a>
                                     </div>
                                 </div>

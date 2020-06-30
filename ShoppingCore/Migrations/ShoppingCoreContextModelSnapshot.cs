@@ -140,6 +140,24 @@ namespace ShoppingCore.Migrations
                     b.ToTable("Tbl_Members");
                 });
 
+            modelBuilder.Entity("ShoppingCore.Models.Tbl_PinCodes", b =>
+                {
+                    b.Property<int>("PinId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Pincode")
+                        .HasColumnType("int");
+
+                    b.HasKey("PinId");
+
+                    b.ToTable("Tbl_PinCodes");
+                });
+
             modelBuilder.Entity("ShoppingCore.Models.Tbl_Product", b =>
                 {
                     b.Property<int>("ProductId")

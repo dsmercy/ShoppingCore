@@ -27,7 +27,7 @@
             <div class="category-selector-wrapper" style="margin-left: 11%;">
                 <label>Subcategory:</label>
                 <div class="category">
-                    <select class="navigationSelector111" name="subcat" ng-options="subcat.name for subcat in subCats"
+                    <select class="navigationSelector111" name="subcat" ng-options="subcat.name for subcat in subCats" disabled
                             ng-change="subcatSelect()" ng-model="subcatselected">
                         <option ng-model="subcatselected" value="0">--Select Subcategory--</option>
                     </select>
@@ -41,7 +41,7 @@
                 <div class="items">
 
                     <span ng-show="Isloading" class="loading">
-                        <img style="width: 300px;" src="~/Images/loading1.gif" />
+                        <img style="width: 300px;filter: blur(5px);" src="~/Images/loading1.gif" />
                     </span>
 
                     <div class="item-block-1 __collection-item" ng-repeat="prod in detailslist">
@@ -57,7 +57,7 @@
                                     </table>
                                 </div>
                                 <a href="/Home/ProductDetails?id={{prod.productId}}" title="{{prod.productName}}">
-                                    <img ng-src="{{path}}{{prod.productImage}}" asp-append-version="true" alt="Product Image" style="display: block !important;width: 420px;height: 214px; position: absolute; left: -107px; top: 0px;" />
+                                    <img ng-src="{{path}}{{prod.productImage}}" asp-append-version="true" alt="Product Image" style="position:absolute;display:block;width:100%;height:100%" />
                                 </a>
                             </div>
                         </div>

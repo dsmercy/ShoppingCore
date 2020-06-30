@@ -6,7 +6,7 @@ app.controller("lazycontroller", function ($scope, $http) {
     $scope.totalpage = 0;
     $scope.allCategory = 0;
     $scope.detailslist = [];
-    $scope.path = "/ProductImage/";
+    $scope.path = "/Thumbnails/";
     $scope.Cats = [{ id: '0', name: 'All'}, { id: '2', name: 'Living room furniture'},
         { id: '3', name: 'Dining room furniture'}, { id: '4', name: 'Bedroom furniture'}, { id: '5', name: 'Home Decor'}, { id: '6', name: 'Restaurant furniture'}];  
 

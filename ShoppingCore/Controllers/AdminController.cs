@@ -214,7 +214,7 @@ namespace ShoppingCore.Controllers
         public Size GetThumbnailSize(Image original)
         {
             // Maximum size of any dimension.
-            const int maxPixels = 60;
+            const int maxPixels = 250;
 
             // Width and height.
             int originalWidth = original.Width;
